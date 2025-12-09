@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio - Bio & Resume | Likith Gowda MC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for professional appearance - UPDATED TO INDIGO THEME */
+        :root {
+            --primary-color: #4F46E5; /* Indigo 600 - Deep Blue */
+            --primary-light: #E0E7FF; /* Indigo 100 - Light Accent */
+            --primary-text: #3730A3; /* Indigo 800 - Dark Accent Text */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Lighter Gray 50 for a cleaner look */
+            min-height: 100vh;
+        }
+        /* Style for the active navigation link */
+        .nav-link {
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            /* Updated to new primary color */
+            background-color: var(--primary-color);
+            border-radius: 9999px;
+        }
+        /* Styles for the timeline effect on the resume page */
+        .resume-section {
+            border-left: 2px solid #e5e7eb; /* Gray 200 */
+        }
+        .resume-section h3::before {
+            content: '';
+            position: absolute;
+            left: -18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            /* Updated to new primary color */
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid #f9fafb; /* Match new body background for contrast */
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center py-8">
+
+    <div id="app" class="w-full max-w-4xl bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100">
+
+        <header class="bg-indigo-700 text-white p-4 sm:p-6 flex justify-between items-center sticky top-0 z-10">
+            <h1 class="text-xl sm:text-2xl font-bold tracking-tight">Likith Gowda MC - Professional Profile</h1>
+            <nav class="flex space-x-6 sm:space-x-8 text-lg font-medium">
+                <a id="nav-bio" class="nav-link active hover:text-indigo-200" onclick="showPage('bio')">Bio</a>
+                <a id="nav-resume" class="nav-link hover:text-indigo-200" onclick="showPage('resume')">Resume</a>
+            </nav>
+        </header>
+
+        <main class="p-6 sm:p-10">
+
+            <section id="bio-page" class="page-content">
+                <div class="sm:flex sm:space-x-8">
+                    <div class="flex-shrink-0 mb-6 sm:mb-0">
+                        <img id="profile-photo"
+                             src="https://raw.githubusercontent.com/nischinbs8-boop/image/refs/heads/main/IMG-20251203-WA0012.jpg"
+                             alt="Professional Profile Picture"
+                             class="w-48 h-48 object-cover rounded-full shadow-lg mx-auto sm:mx-0 border-4 border-white ring-4 ring-indigo-500">
+                    </div>
+
+                    <div class="flex-grow">
+                        <h2 class="text-3xl font-extrabold text-gray-900 mb-4 border-b pb-2 border-indigo-500">About Me</h2>
+                        <p id="bio-summary" class="text-gray-700 leading-relaxed mb-6 text-lg">
+                            I am a third-year Computer Science and Engineering (CSE) student at Don Bosco Institute of Technology, Kumbalagodu, Bengaluru. Passionate about software development and driven by a strong foundation in Java and Python, I am actively seeking opportunities to apply my technical skills to real-world projects and contribute to innovative teams.
+                        </p>
+
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Contact & Details</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-600">
+                            <div><strong class="font-medium text-gray-700">Email:</strong> <span id="contact-email">likithgowd04@gmail.com</span></div>
+                            <div><strong class="font-medium text-gray-700">Availability:</strong> <span id="contact-availability">Open to Internship and freelance work</span></div>
+                            <div><strong class="font-medium text-gray-700">Location:</strong> <span id="contact-location">Karnataka, Bengaluru</span></div>
+                        </div>
+
+                        <button id="copy-email-btn" onclick="copyEmail()" class="mt-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path></svg>
+                            Copy Email Address
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resume-page" class="page-content hidden">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-6 border-b pb-2 border-indigo-500">Professional Resume</h2>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Technical Skills
+                    </h3>
+                    <div id="skills-container" class="flex flex-wrap gap-2">
+                        </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.25L13.25 21H5V13.25L12.75 5.5L21 13.25Z"></path></svg>
+                        Work Experience
+                    </h3>
+                    <div id="experience-container" class="space-y-8 pl-4 resume-section">
+                        </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zM5 14v4a2 2 0 002 2h10a2 2 0 002-2v-4"></path></svg>
+                        Education
+                    </h3>
+                    <div id="education-container" class="space-y-8 pl-4 resume-section">
+                        </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="bg-indigo-700 text-center text-sm text-gray-300 p-4">
+            &copy; <span id="current-year"></span> Likith Gowda MC. All Rights Reserved. Built with HTML, Tailwind CSS, and JavaScript.
+        </footer>
+
+    </div>
+
+    <script>
+        const contentData = {
+            bio: {
+                // Using the public GitHub URL
+                photoUrl: "https://raw.githubusercontent.com/nischinbs8-boop/image/refs/heads/main/IMG-20251203-WA0012.jpg", 
+                
+                summary: "I am a third-year Computer Science and Engineering (CSE) student at Don Bosco Institute of Technology, Kumbalagodu, Bengaluru. Passionate about software development and driven by a strong foundation in Java and Python, I am actively seeking opportunities to apply my technical skills to real-world projects and contribute to innovative teams.",
+                // UPDATED: Email ID changed
+                email: "likithgowd04@gmail.com",
+                availability: "Open to Internship and freelance work", 
+                location: "Karnataka, Bengaluru",
+            },
+            resume: {
+                skills: [
+                    "Java", "Python", "SQL (PostgreSQL, MySQL)", "Spring Boot", "REST APIs",
+                    "React", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS",
+                    "Git", "Docker", "AWS/Cloud Services", "Agile/Scrum"
+                ],
+                experience: [
+                    {
+                        title: "Current Focus: Academic Projects & Learning",
+                        company: "Don Bosco Institute of Technology",
+                        duration: "Ongoing",
+                        description: [
+                            "Actively participating in departmental hackathons and coding competitions.",
+                            "Developing a full-stack application for the final-year capstone project using React and Spring Boot.",
+                            "Exploring DevOps practices, including Docker containerization and basic cloud deployment (AWS/GCP)."
+                        ]
+                    }
+                ],
+                education: [
+                    {
+                        degree: "B.E. in Computer Science and Engineering (3rd Year)",
+                        institution: "Don Bosco Institute of Technology, Kumbalagodu, Bengaluru",
+                        duration: "Expected Graduation 2027", 
+                        details: "Current focus on Data Structures and Algorithms, Object-Oriented Programming (Java), and Database Management Systems."
+                    },
+                    {
+                        degree: "Pre-University Course (PUC) Science",
+                        institution: "State Pre-University College",
+                        duration: "2021 - 2023", 
+                        details: "Scored 90% aggregate."
+                    }
+                ]
+            }
+        };
+
+        // --- Core Functions ---
+
+        /**
+         * Renders the data into the HTML structure.
+         */
+        function initializeContent() {
+            const bio = contentData.bio;
+            const resume = contentData.resume;
+
+            // Bio Content: Use a fallback placeholder if the user hasn't provided a real URL yet
+            const photoSrc = bio.photoUrl.startsWith('http') ? bio.photoUrl : "https://placehold.co/200x200/4F46E5/ffffff?text=Your+Photo";
+            document.getElementById('profile-photo').src = photoSrc;
+
+            // If the image fails to load (e.g., due to an invalid link), explicitly reset the source to the placeholder
+            document.getElementById('profile-photo').onerror = function() {
+                this.src = "https://placehold.co/200x200/4F46E5/ffffff?text=Your+Photo";
+            };
+
+            document.getElementById('bio-summary').textContent = bio.summary;
+            document.getElementById('contact-email').textContent = bio.email;
+            document.getElementById('contact-location').textContent = bio.location;
+            
+            // Set the new Availability field
+            document.getElementById('contact-availability').textContent = bio.availability;
+            
+
+            // Resume Skills
+            const skillsContainer = document.getElementById('skills-container');
+            // UPDATED: Skill chip colors changed to Indigo 
+            skillsContainer.innerHTML = resume.skills.map(skill => `
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full shadow-sm">
+                    ${skill}
+                </span>
+            `).join('');
+
+            // Resume Experience
+            const experienceContainer = document.getElementById('experience-container');
+            // UPDATED: Company text color changed to Indigo 
+            experienceContainer.innerHTML = resume.experience.map(exp => `
+                <div class="relative pl-6">
+                    <h3 class="text-lg font-bold text-gray-900">${exp.title}</h3>
+                    <p class="text-indigo-600 font-medium">${exp.company}</p>
+                    <p class="text-sm text-gray-500 mb-2">${exp.duration}</p>
+                    <ul class="list-disc ml-5 text-gray-700 space-y-1">
+                        ${exp.description.map(desc => <li>${desc}</li>).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
+            // Resume Education
+            const educationContainer = document.getElementById('education-container');
+            // UPDATED: Institution text color changed to Indigo 
+            educationContainer.innerHTML = resume.education.map(edu => `
+                <div class="relative pl-6">
+                    <h3 class="text-lg font-bold text-gray-900">${edu.degree}</h3>
+                    <p class="text-indigo-600 font-medium">${edu.institution}</p>
+                    <p class="text-sm text-gray-500 mb-1">${edu.duration}</p>
+                    <p class="text-gray-700">${edu.details}</p>
+                </div>
+            `).join('');
+            
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        }
+
+        /**
+         * Simulates page switching by toggling visibility of sections.
+         * @param {string} pageId - 'bio' or 'resume'.
+         */
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Hide all pages
+            pages.forEach(page => page.classList.add('hidden'));
+            
+            // Deactivate all nav links
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Show the selected page and activate the link
+            document.getElementById(${pageId}-page).classList.remove('hidden');
+            document.getElementById(nav-${pageId}).classList.add('active');
+        }
+
+        /**
+         * Utility to copy email address to clipboard.
+         */
+        function copyEmail() {
+            const email = contentData.bio.email;
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            let success = false;
+            try {
+                // Use execCommand('copy') for better compatibility in iframe environments
+                success = document.execCommand('copy');
+            } catch (err) {
+                console.error('Failed to copy text:', err);
+            }
+            document.body.removeChild(tempInput);
+
+            const button = document.getElementById('copy-email-btn');
+            const originalText = button.innerHTML;
+            
+            // UPDATED: Button colors use Indigo theme
+            const defaultBgClass = 'bg-indigo-600';
+            const defaultHoverClass = 'hover:bg-indigo-700';
+            
+            if (success) {
+                button.textContent = 'Email Copied!';
+                button.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                button.classList.remove(defaultBgClass, defaultHoverClass);
+            } else {
+                button.textContent = 'Copy Failed (Check Console)';
+            }
+
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                button.classList.add(defaultBgClass, defaultHoverClass);
+            }, 2000);
+        }
+
+
+        // Initialize the app when the page loads
+        window.onload = function() {
+            initializeContent();
+            // Start on the Bio page by default
+            showPage('bio'); 
+        };
+    </script>
+</body>
+</html>
